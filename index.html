@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Ragnarok Online Browser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #222;
+      font-family: sans-serif;
+    }
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      background: #f08;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #c06;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="startRo()">เริ่มเกม</button>
+
+  <script src="api.js"></script>
+  <script>
+    function startRo() {
+      const ro = new ROBrowser({
+        width: 960,
+        height: 720,
+        servers: 'data/clientinfo.xml',
+        packetver: 20201101,
+        type: ROBrowser.TYPE.POPUP,
+        application: ROBrowser.APP.ONLINE,
+        skipIntro: true,
+        api: true
+      });
+      ro.start();
+    }
+  </script>
+</body>
+</html>
